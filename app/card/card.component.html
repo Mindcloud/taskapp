@@ -1,0 +1,15 @@
+<div class="col-sm-3">
+    <div class="card" (click)="statusToggle()" [class.completed]="task.completed" [hidden]="task.deleted">
+        <div class="card-block">
+            <p>{{ task.content }}</p>
+            
+        </div>
+        <div class="card-footer">
+            <span *ngIf="!task.completed"><i class="fa fa-times" aria-hidden="true"></i>Not Complete</span>
+            <span [hidden]="!task.completed"><i class="fa fa-check" aria-hidden="true"></i>Complete</span>
+        </div>
+        <div class="card-block">
+            <a href="#" class="btn btn-primary" (click)="deleteTask()">Delete Task</a>
+        </div>
+    </div>
+</div>

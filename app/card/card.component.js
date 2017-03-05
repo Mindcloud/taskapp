@@ -9,27 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var task_1 = require('./model/task');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.tasks = [];
-        this.currentTask = new task_1.Task(null, false, false);
+var task_1 = require('../model/task');
+var CardComponent = (function () {
+    function CardComponent() {
     }
-    AppComponent.prototype.addTask = function () {
-        var task = new task_1.Task(this.currentTask.content, this.currentTask.completed, this.currentTask.deleted);
-        this.tasks.push(task);
-        this.currentTask.content = null;
+    CardComponent.prototype.statusToggle = function () {
+        this.task.completed = !this.task.completed;
     };
-    AppComponent = __decorate([
+    CardComponent.prototype.deleteTask = function () {
+        this.task.deleted = true;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', task_1.Task)
+    ], CardComponent.prototype, "task", void 0);
+    CardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            styleUrls: ['app.component.css']
+            selector: 'app-card',
+            templateUrl: 'card.component.html',
+            styleUrls: ['card.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], CardComponent);
+    return CardComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CardComponent = CardComponent;
+//# sourceMappingURL=card.component.js.map
